@@ -29,9 +29,10 @@ namespace CasgemMicroservice.IdentityServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddLocalApiAuthentication();
+       
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -48,8 +49,10 @@ namespace CasgemMicroservice.IdentityServer
                 options.EmitStaticAudienceClaim = true;
             })
                 .AddInMemoryIdentityResources(Config.IdentityResources)
+                .AddInMemoryApiResources(Config.ApiResources)
                 .AddInMemoryApiScopes(Config.ApiScopes)
                 .AddInMemoryClients(Config.Clients)
+
                 .AddAspNetIdentity<ApplicationUser>();
 
             // not recommended for production - you need to store your key material somewhere secure
@@ -72,12 +75,13 @@ namespace CasgemMicroservice.IdentityServer
         {
             if (Environment.IsDevelopment())
             {
+                
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
             }
 
             app.UseStaticFiles();
-
+            app.UseAuthentication();
             app.UseRouting();
             app.UseIdentityServer();
             app.UseAuthorization();
