@@ -28,5 +28,6 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Handl
             var values = await _repository.GetAllAsync();
             return _mapper.Map<List<ResultOrderingDto>>(values);
         }
+     
     }
 }

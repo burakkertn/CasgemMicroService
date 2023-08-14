@@ -1,4 +1,5 @@
-﻿using CasgemMicroService.Services.Order.Core.Application.Dtos.OrderDetailDtos;
+﻿
+using CasgemMicroService.Services.Order.Core.Application.Dtos.OrderDetailDtos;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,11 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Queri
 {
     public class GetByIdOrderingQueryRequest : IRequest<ResultOrderingDto>
     {
+        public int Id { get; set; }
+
         public GetByIdOrderingQueryRequest(int id)
         {
             Id = id;
         }
-
-        public int Id { get; set; }
-
-     
     }
 }

@@ -7,6 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.0">
       <PrivateAssets>all</PrivateAssets>
@@ -20,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\CasgemMicroService.Services.Order.Core.Application\CasgemMicroService.Services.Order.Core.Application.csproj" />
     <ProjectReference Include="..\..\Infra\CasgemMicroservice.Services.Order.Infra.Persistance\CasgemMicroservice.Services.Order.Infra.Persistance.csproj" />
   </ItemGroup>
 

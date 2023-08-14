@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands
 {
-
-    //MURAT YÜCEDAĞ YAZDI
-    public class RemoveOrderingCommandRequest:IRequest
+    public class RemoveOrderDetailCommandRequest : IRequest
     {
-        public RemoveOrderingCommandRequest(int id)
+        public int Id { get; set; }
+
+        public RemoveOrderDetailCommandRequest(int id)
         {
             Id = id;
         }
-        public int Id { get; set; }
     }
 }

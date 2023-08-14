@@ -1,5 +1,5 @@
-﻿using CasgemMicroService.Services.Order.Core.Application.Dtos.AddressDtos;
-using CasgemMicroService.Services.Order.Core.Application.Dtos.OrderDetailDto;
+﻿
+using CasgemMicroService.Services.Order.Core.Application.Dtos.AddressDtos;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -11,11 +11,11 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Queri
 {
     public class GetByIdAddressQueryRequest : IRequest<ResultAddressDto>
     {
+        public int Id { get; set; }
+
         public GetByIdAddressQueryRequest(int id)
         {
             Id = id;
         }
-
-        public int Id { get; set; }
     }
 }

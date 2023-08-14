@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CasgemMicroService.Services.Core.Domain.Entities
+namespace CasgemMicroService.Services.Order.Core.Domain.Entities
 {
     public class Address
     {

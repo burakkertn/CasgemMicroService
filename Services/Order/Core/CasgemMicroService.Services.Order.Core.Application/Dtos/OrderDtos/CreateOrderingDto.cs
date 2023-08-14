@@ -10,7 +10,7 @@ namespace CasgemMicroService.Services.Order.Core.Application.Dtos.OrderDetailDto
     {
 
 
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         public decimal TotalPrice { get; set; }
 

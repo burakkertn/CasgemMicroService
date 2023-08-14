@@ -23,11 +23,11 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Handl
             _mapper = mapper;
         }
 
+        
         public async Task<ResultOrderingDto> Handle(GetByIdOrderingQueryRequest request, CancellationToken cancellationToken)
         {
             var value = await _repository.GetByIdAsync(request.Id);
             return _mapper.Map<ResultOrderingDto>(value);
-
         }
     }
 }

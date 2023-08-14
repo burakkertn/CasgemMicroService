@@ -10,9 +10,12 @@
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="MediatR" Version="12.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Basket\CasgemMicroService.Basket\CasgemMicroService.Basket.csproj" />
     <ProjectReference Include="..\CasgemMicroService.Services.Order.Core.Domain\CasgemMicroService.Services.Order.Core.Domain.csproj" />
   </ItemGroup>
 

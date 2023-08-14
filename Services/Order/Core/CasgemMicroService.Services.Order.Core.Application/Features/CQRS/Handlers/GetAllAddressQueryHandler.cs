@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using CasgemMicroService.Services.Core.Domain.Entities;
+using CasgemMicroService.Services.Order.Core.Domain.Entities;
 using CasgemMicroService.Services.Order.Core.Application.Dtos.AddressDtos;
 using CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Queries;
 using CasgemMicroService.Services.Order.Core.Application.Interfaces;
-using CasgemMicroService.Services.Order.Core.Domain.Entities;
+
 using MediatR;
 using System;
 using System.Collections.Generic;

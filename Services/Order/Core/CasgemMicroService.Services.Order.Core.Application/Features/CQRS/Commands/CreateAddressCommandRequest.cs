@@ -1,5 +1,4 @@
-﻿using CasgemMicroService.Services.Order.Core.Application.Dtos.AddressDtos;
-using MediatR;
+﻿using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +7,8 @@ using System.Threading.Tasks;
 
 namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands
 {
-    public class CreateAddressCommandRequest : IRequest 
+    public class CreateAddressCommandRequest : IRequest
     {
-
         public string UserID { get; set; }
         public string District { get; set; }
         public string City { get; set; }

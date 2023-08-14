@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CasgemMicroservice.IdentityServer.Migrations
+namespace CasgemMicroService.IdentityServer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     [Migration("20230809070626_initialize")]
@@ -156,7 +156,7 @@ namespace CasgemMicroservice.IdentityServer.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
+                    b.Property<string>("")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 

@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\CasgemMicroService.Services.Order.Core.Application\CasgemMicroService.Services.Order.Core.Application.csproj" />
     <ProjectReference Include="..\..\Core\CasgemMicroService.Services.Order.Core.Domain\CasgemMicroService.Services.Order.Core.Domain.csproj" />
   </ItemGroup>
 

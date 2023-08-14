@@ -16,6 +16,7 @@ namespace CasgemMicroservice.IdentityServer
                 new ApiResource("resource_photostock"){Scopes={"photostock_fullpermission"}},
                     new ApiResource("resource_basket"){Scopes={"basket_fullpermission"}},
                         new ApiResource("resource_discount"){Scopes={"discount_fullpermission"}},
+                            new ApiResource("resource_order"){Scopes={"order_fullpermission"}},
 
             new ApiResource(IdentityServerConstants.LocalApi.ScopeName)
         };
@@ -38,6 +39,7 @@ namespace CasgemMicroservice.IdentityServer
                  new ApiScope("photostock_fullpermission", "Fotoğraf İşlemleri İçin Tam Erişim"),
                     new ApiScope("basket_fullpermission", "Sepet İçin Tam Erişim"),
                         new ApiScope("discount_fullpermission", "Discount İçin Tam Erişim"),
+                            new ApiScope("order_fullpermission", "Sipariş İçin Tam Erişim"),
               new ApiScope(IdentityServerConstants.LocalApi.ScopeName)
             };
 
@@ -67,7 +69,7 @@ namespace CasgemMicroservice.IdentityServer
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
 
                     AllowOfflineAccess = true,
-                    AllowedScopes = { "catalog_fullpermission", "basket_fullpermission", "photostock_fullpermission", "discount_fullpermission",
+                    AllowedScopes = { "catalog_fullpermission", "basket_fullpermission", "photostock_fullpermission","discount_fullpermission","order_fullpermission",
 
                     IdentityServerConstants.LocalApi.ScopeName,
                     IdentityServerConstants.StandardScopes.Email,

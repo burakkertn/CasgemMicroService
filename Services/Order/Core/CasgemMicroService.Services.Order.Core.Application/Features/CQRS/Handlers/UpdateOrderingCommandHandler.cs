@@ -1,7 +1,4 @@
-﻿//using AutoMapper;
-using AutoMapper;
-using CasgemMicroService.Services.Core.Domain.Entities;
-using CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands;
+﻿using CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands;
 using CasgemMicroService.Services.Order.Core.Application.Interfaces;
 using CasgemMicroService.Services.Order.Core.Domain.Entities;
 using MediatR;
@@ -16,23 +13,20 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Handl
     public class UpdateOrderingCommandHandler : IRequestHandler<UpdateOrderingCommandRequest>
     {
         private readonly IRepository<Ordering> _repository;
-        private readonly IMapper _mapper;
 
-        public UpdateOrderingCommandHandler(IRepository<Ordering> repository, IMapper mapper)
+        public UpdateOrderingCommandHandler(IRepository<Ordering> repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
 
         public async Task Handle(UpdateOrderingCommandRequest request, CancellationToken cancellationToken)
         {
             var values = await _repository.GetByIdAsync(request.OrderingID);
+            values.UserID = request.UserID;
+            values.TotalPrice = request.TotalPrice;
+            values.OrderDate = request.OrderDate;
 
-             
-            
             await _repository.UpdateAsync(values);
         }
     }
-
 }
-

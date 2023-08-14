@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 
 namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands
 {
-
-    //MURAT YÜCEDAĞ YAZDI
     public class UpdateOrderDetailCommandRequest : IRequest
     {
         public int OrderDetailID { get; set; }
@@ -16,7 +14,6 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Comma
         public string ProductName { get; set; }
         public decimal ProductPrice { get; set; }
         public int ProductAmount { get; set; }
-
         public int OrderingID { get; set; }
     }
 }

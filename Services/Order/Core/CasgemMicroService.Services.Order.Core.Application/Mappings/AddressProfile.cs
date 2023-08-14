@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using CasgemMicroService.Services.Core.Domain.Entities;
-using CasgemMicroService.Services.Order.Core.Application.Dtos.AddressDtos;
 using CasgemMicroService.Services.Order.Core.Domain.Entities;
+using CasgemMicroService.Services.Order.Core.Application.Dtos.AddressDtos;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CasgemMicroservice.IdentityServer.Migrations
+namespace CasgemMicroService.IdentityServer.Migrations
 {
     public partial class initialize : Migration
     {

@@ -1,4 +1,6 @@
-﻿using CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands;
+﻿
+using AutoMapper;
+using CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands;
 using CasgemMicroService.Services.Order.Core.Application.Interfaces;
 using CasgemMicroService.Services.Order.Core.Domain.Entities;
 using MediatR;
@@ -10,20 +12,19 @@ using System.Threading.Tasks;
 
 namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Handlers
 {
-
-    //MURAT YÜCEDAĞ YAZDI
     public class RemoveOrderingCommandHandler : IRequestHandler<RemoveOrderingCommandRequest>
     {
         private readonly IRepository<Ordering> _repository;
+
         public RemoveOrderingCommandHandler(IRepository<Ordering> repository)
         {
             _repository = repository;
         }
+
         public async Task Handle(RemoveOrderingCommandRequest request, CancellationToken cancellationToken)
         {
             var values = await _repository.GetByIdAsync(request.Id);
-            await _repository.DeleteAsync(values);
-           
+            await _repository.DeleteAsync(values);            
         }
     }
 }

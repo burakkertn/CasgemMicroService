@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using CasgemMicroService.Services.Order.Core.Application.Dtos.OrderDetailDto;
-using CasgemMicroService.Services.Order.Core.Application.Dtos.OrderDetailDtos;
 using CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Queries;
 using CasgemMicroService.Services.Order.Core.Application.Interfaces;
 using CasgemMicroService.Services.Order.Core.Domain.Entities;
@@ -26,9 +25,8 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Handl
 
         public async Task<ResultOrderDetailDto> Handle(GetByIdOrderDetailQueryRequest request, CancellationToken cancellationToken)
         {
-            var value = await _repository.GetByIdAsync(request.Id);
-            return _mapper.Map<ResultOrderDetailDto>(value);
-
+            var result = await _repository.GetByIdAsync(request.Id);
+            return _mapper.Map<ResultOrderDetailDto>(result);
         }
     }
 }

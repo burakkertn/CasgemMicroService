@@ -1,6 +1,4 @@
-﻿using AutoMapper;
-using CasgemMicroService.Services.Order.Core.Application.Dtos.OrderDetailDto;
-using CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands;
+﻿using CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Commands;
 using CasgemMicroService.Services.Order.Core.Application.Interfaces;
 using CasgemMicroService.Services.Order.Core.Domain.Entities;
 using MediatR;
@@ -15,15 +13,11 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Handl
     public class CreateOrderDetailCommandHandler : IRequestHandler<CreateOrderDetailCommandRequest>
     {
         private readonly IRepository<OrderDetail> _repository;
-        private readonly IMapper _mapper;
 
-        public CreateOrderDetailCommandHandler(IRepository<OrderDetail> repository, IMapper mapper)
+        public CreateOrderDetailCommandHandler(IRepository<OrderDetail> repository)
         {
             _repository = repository;
-            _mapper = mapper;
         }
-
-
 
         public Task Handle(CreateOrderDetailCommandRequest request, CancellationToken cancellationToken)
         {
@@ -33,7 +27,7 @@ namespace CasgemMicroService.Services.Order.Core.Application.Features.CQRS.Handl
                 ProductName = request.ProductName,
                 ProductPrice = request.ProductPrice,
                 ProductAmount = request.ProductAmount,
-                OrderingID = request.OrderingID,
+                OrderingID = request.OrderingID
             };
             return _repository.CreateAsync(values);
         }

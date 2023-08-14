@@ -1,4 +1,5 @@
-﻿using CasgemMicroService.Services.Core.Domain.Entities;
+﻿
+using CasgemMicroService.Services.Order.Core.Domain.Entities;
 using CasgemMicroService.Services.Order.Core.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;

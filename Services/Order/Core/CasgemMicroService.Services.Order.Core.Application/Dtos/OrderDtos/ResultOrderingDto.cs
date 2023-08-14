@@ -8,9 +8,9 @@ namespace CasgemMicroService.Services.Order.Core.Application.Dtos.OrderDetailDto
 {
     public class ResultOrderingDto
     {
-        public int OrderID { get; set; }
+        public int OrderingID { get; set; }
 
-        public int UserID { get; set; }
+        public string UserID { get; set; }
 
         public decimal TotalPrice { get; set; }
 
