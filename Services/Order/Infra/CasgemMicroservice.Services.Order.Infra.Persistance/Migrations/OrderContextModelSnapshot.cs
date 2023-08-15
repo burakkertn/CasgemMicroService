@@ -22,7 +22,7 @@ namespace CasgemMicroservice.Services.Order.Infra.Persistance.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CasgemMicroService.Services.Core.Domain.Entities.Address", b =>
+            modelBuilder.Entity("CasgemMicroService.Services.Order.Core.Domain.Entities.Address", b =>
                 {
                     b.Property<int>("AddressID")
                         .ValueGeneratedOnAdd()

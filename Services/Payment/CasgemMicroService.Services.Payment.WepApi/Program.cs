@@ -1,43 +1,35 @@
-
+using CasgemMicroService.Services.Payment.WepApi.DAL;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
-using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using CasgemMicroservice.Shared.Services;
-using CasgemMicroService.Services.Order.Core.Application.Interfaces;
-using CasgemMicroService.Services.Order.Core.Application;
-using CasgemMicroservice.Services.Order.Infra.Persistance.Context;
-using CasgemMicroService.Services.Order.Infra.Persistance.Repositories;
+using System.IdentityModel.Tokens.Jwt;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers();
 
 var requireAuthorizePolicy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
 JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub");
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(opt =>
 {
     opt.Authority = builder.Configuration["IdentityServerUrl"];
-    opt.Audience = "resource_order";
+    opt.Audience = "resource_payment";
     opt.RequireHttpsMetadata = false;
 });
 
+builder.Services.AddHttpContextAccessor();
+
 builder.Services.AddControllers(opt =>
 {
-    opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy)); //Authentication mecbur kýlýnýyor..
+    opt.Filters.Add(new AuthorizeFilter(requireAuthorizePolicy));
 });
-
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddDbContext<OrderContext>();
-builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddScoped<ISharedIdentityService, SharedIdentityService>(); builder.Services.AddApplicationServices(builder.Configuration);
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddDbContext<PaymentContext>();
+
 var app = builder.Build();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
@@ -47,9 +39,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseAuthentication();
 app.MapControllers();
 
 app.Run();

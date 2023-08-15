@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CasgemMicroservice.Services.Order.Infra.Persistance.Migrations
 {
-    public partial class mig1 : Migration
+    public partial class initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CasgemMicroservice.Services.Order.Infra.Persistance.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    [Migration("20230814101358_mig1")]
-    partial class mig1
+    [Migration("20230815070141_initialize")]
+    partial class initialize
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,7 +24,7 @@ namespace CasgemMicroservice.Services.Order.Infra.Persistance.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("CasgemMicroService.Services.Core.Domain.Entities.Address", b =>
+            modelBuilder.Entity("CasgemMicroService.Services.Order.Core.Domain.Entities.Address", b =>
                 {
                     b.Property<int>("AddressID")
                         .ValueGeneratedOnAdd()
